@@ -1,16 +1,15 @@
-//println ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
+println ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
 
 
-// logger.info ">>> build.gradle: $project.gradle.gradleVersion"
-// logger.info ">>> build.gradle: $project.gradle.gradleHomeDir"
-// logger.info ">>> build.gradle: $project.gradle.gradleUserHomeDir"
+ logger.info ">>> build.gradle: $project.gradle.gradleVersion"
+ logger.info ">>> build.gradle: $project.gradle.gradleHomeDir"
+ logger.info ">>> build.gradle: $project.gradle.gradleUserHomeDir"
 
-// logger.info ">>> build.gradle: $buildFile"
+ logger.info ">>> build.gradle: $buildFile"
 
-// logger.info ">>> build.gradle: ${relativePath(buildFile)}"
+ logger.info ">>> build.gradle: ${relativePath(buildFile)}"
 
 
-/*
 logger.info """
 ******************************************************************************
 Welcome to Gradle $gradle.gradleVersion - http://www.gradle.org
@@ -21,13 +20,12 @@ Base directory: $projectDir
 Running script  ${relativePath(buildFile)}
 ******************************************************************************
 """
-*/
 
 
 
 //Properties
 
-logger.info "has property: ${project.gradle.hasProperty('$gradleVersion')}"
+logger.info "has property: ${project.gradle.hasProperty('gradleVersion')}"
 
 logger.info "has property: ${hasProperty('projectDir')}"
 
@@ -46,7 +44,7 @@ if( project.hasProperty('gradlePropertiesProp') ) {
 
 
 if( project.hasProperty('commandLineProjectProp') ) {
-	logger.info "The property file value is $commandLineProjectProp"
+	logger.info "The property comand line value is $commandLineProjectProp"
 }else{
 	logger.info "Oops! commandLineProjectProp can't be found"
 }
@@ -57,6 +55,13 @@ if( project.hasProperty('sayHello') ) {
 	logger.info project.sayHello
 }else{
 	logger.info "Unable to say Hello!"
+}
+
+project.sayHello = "World!"
+if( project.hasProperty('sayHello') ) {
+	logger.info sayHello
+}else{
+	logger.info "Unable to say World!"
 }
 
 if( project.gradle.hasProperty('timestamp') ) {
@@ -71,4 +76,14 @@ if( gradle.ext.has('timestamp') ) {
 }else{
 	logger.info "Oops! timestamp() unavailable!"
 }
+
+project.ext {
+	firstPropertyKey = "firstPropertyValue"
+	secondPropertyKey = "secondPropertyValue"
+	thirdPropertyKey = "thirdPropertyValue"
+}
+
+logger.info "firstPropertyKey=$firstPropertyKey"
+logger.info "secondPropertyKey=$secondPropertyKey"
+logger.info "thirdPropertyKey=$thirdPropertyKey"
 

@@ -1,16 +1,16 @@
-//println ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
+println ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
 
 
-// logger.info ">>> build.gradle: $project.gradle.gradleVersion"
-// logger.info ">>> build.gradle: $project.gradle.gradleHomeDir"
-// logger.info ">>> build.gradle: $project.gradle.gradleUserHomeDir"
+ logger.info ">>> build.gradle: $project.gradle.gradleVersion"
 
-// logger.info ">>> build.gradle: $buildFile"
+ logger.info ">>> build.gradle: $project.gradle.gradleHomeDir"
+ logger.info ">>> build.gradle: $project.gradle.gradleUserHomeDir"
 
-// logger.info ">>> build.gradle: ${relativePath(buildFile)}"
+ logger.info ">>> build.gradle: $buildFile"
+
+ logger.info ">>> build.gradle: ${relativePath(buildFile)}"
 
 
-/*
 logger.info """
 ******************************************************************************
 Welcome to Gradle $gradle.gradleVersion - http://www.gradle.org
@@ -21,4 +21,3 @@ Base directory: $projectDir
 Running script  ${relativePath(buildFile)}
 ******************************************************************************
 """
-*/

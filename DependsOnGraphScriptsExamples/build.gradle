@@ -1,6 +1,6 @@
-defaultTasks 'doFinished'
+/*defaultTasks 'doFinished'
 
-//logger.info ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
+logger.info ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
 
 
 
@@ -32,14 +32,11 @@ task doFinished (dependsOn: ['doSomethingInTheMiddle', 'doStep2'])   {
 // logger.info ">>> $project.gradle.taskGraph.allTasks"
 
 
-/*
 project.gradle.taskGraph.whenReady {
 	logger.info ">>> $project.gradle.taskGraph.allTasks"
-}
-*/
+}*/
 
 
-/*
 
 defaultTasks 'doFinished'
 
@@ -96,4 +93,3 @@ project.gradle.taskGraph.whenReady {taskGraph ->
  }
 
 
-*/

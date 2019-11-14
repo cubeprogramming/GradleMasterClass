@@ -1,5 +1,6 @@
 plugins {
   id 'java'
+	id 'war'
 }
 
 group = 'com.denofprogramming'
@@ -9,25 +10,33 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+ext.tomcatHome = '/Users/cube/Applications/apache-tomcat-9.0.27'
+ext.tomcatWebapps = "$tomcatHome/webapps"
 
 repositories{
 	mavenCentral()
 }
 
 
-dependencies { 
-
-
+dependencies {
 	implementation 'org.springframework:spring-webmvc:4.0.3.RELEASE'
 	implementation 'javax.inject:javax.inject:1'
 	implementation 'org.apache.commons:commons-math3:3.2'
 	implementation 'jstl:jstl:1.2'
-	implementation 'log4j:log4j:1.2.17'
+	//implementation 'log4j:log4j:1.2.17'
+
+    implementation 'org.slf4j:slf4j-log4j12:1.7.25'
 		
-		
-	compileOnly "javax.servlet:javax.servlet-api:3.0.1"
+	compileOnly "javax.servlet:javax.servlet-api:3.0.1" //Just needed during the compilation. In runtime provided by container
 	testImplementation	'junit:junit:4.11'
 
 }
 
+war {
+	archiveName = 'mywebapp.war'
+}
 
+task deployToTomcat(type: Copy, dependsOn: 'war'){
+	from war.archivePath
+	into "$tomcatWebapps"
+}

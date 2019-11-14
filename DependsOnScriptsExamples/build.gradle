@@ -1,4 +1,4 @@
-defaultTasks 'doFinished'
+/*defaultTasks 'doFinished'
 
 //logger.info ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
 
@@ -27,12 +27,11 @@ task doFinished (dependsOn: ['doSomethingInTheMiddle', 'doStep2'])   {
 	doLast{
 		logger.info "$name - Done - OK!"
 	}	
-}
+}*/
 
 
-/*
 
-defaultTasks 'doFinished'
+/*defaultTasks 'doFinished'
 
 logger.info ">>> build.gradle --> This is executed during the configuration phase  - timestamp @ ${gradle.timestamp()}"
 
@@ -64,11 +63,9 @@ task doFinished (dependsOn: ['doSomethingInTheMiddle', 'doStep2'])   {
 }
 
 
-logger.info ">>> ${ project.tasks.findAll { task -> task.name.startsWith('doStep2')  }  }"
+logger.info ">>> ${ project.tasks.findAll { task -> task.name.startsWith('doStep2')  }  }"*/
 
-*/
 
-/*
 
 //Add to dependency to existing Task
 
@@ -110,6 +107,3 @@ logger.info "${ project.tasks.findAll { task -> task.name.startsWith('doStep2')}
 if ( Math.random() < 0.5){
 	doSomethingInTheMiddle.dependsOn doStartProcess, tasks.findAll { task -> task.name.startsWith('doStep2') }
 }
-
-
-*/
